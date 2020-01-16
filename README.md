@@ -1,4 +1,4 @@
-![Last Update](https://img.shields.io/badge/Last_Update-Jan_11,_2020-brightgreen)
+![Last Sync'ed](https://img.shields.io/badge/Last_Sync%27ed-Jan_16,_2020-brightgreen)
 
 # The Old New Win32API
 
@@ -359,7 +359,7 @@ found useful.
 * [What does the `CS_CLASSDC` class style do?](https://devblogs.microsoft.com/oldnewthing/20060602-00/?p=30993)
 * [Modifying the `CS_NOCLOSE` style does affect all windows of the class, just not necessarily in an immediately noticeable way](https://devblogs.microsoft.com/oldnewthing/20150305-00/?p=44533)
 * [Why does `PrintWindow` hate `CS_PARENTDC`? Because EVERYBODY hates `CS_PARENTDC`!](https://devblogs.microsoft.com/oldnewthing/20120604-00/?p=7463)
-* [Why does `PrintWindow` hate CS_`PARENTDC`? redux](https://devblogs.microsoft.com/oldnewthing/20140410-00/?p=1283)
+* [Why does `PrintWindow` hate `CS_PARENTDC`? redux](https://devblogs.microsoft.com/oldnewthing/20140410-00/?p=1283)
 * [Safer subclassing](https://devblogs.microsoft.com/oldnewthing/20031111-00/?p=41883)
 * [Private classes, superclassing, and global subclassing](https://devblogs.microsoft.com/oldnewthing/20100215-00/?p=14943)
 * [What makes `RealGetWindowClass` so much more real than `GetClassName`?](https://devblogs.microsoft.com/oldnewthing/20101231-00/?p=11863)
@@ -554,10 +554,10 @@ found useful.
 * [Over-documenting `TTM_RELAYEVENT` and why it results in a one-second periodic timer running as long as the tooltip is visible](https://devblogs.microsoft.com/oldnewthing/20200110-00/?p=103316)
 
 ### Trackbars
-[Adding a `Ctrl`+arrow accelerator for moving the trackbar by just one unit, part 1: Initial plunge](https://devblogs.microsoft.com/oldnewthing/20181023-00/?p=100035)
-[Adding a `Ctrl`+arrow accelerator for moving the trackbar by just one unit, part 2: Second try](https://devblogs.microsoft.com/oldnewthing/20181024-00/?p=100045)
-[How do I prevent users from using the mouse to drag the trackbar thumb to positions that aren’t multiples of five? Part 1: Reframe the problem](https://devblogs.microsoft.com/oldnewthing/20181025-00/?p=100055)
-[How do I prevent users from using the mouse to drag the trackbar thumb to positions that aren’t multiples of five? Part 2: Nudging the thumb position](https://devblogs.microsoft.com/oldnewthing/20181026-00/?p=100065)
+* [Adding a `Ctrl`+arrow accelerator for moving the trackbar by just one unit, part 1: Initial plunge](https://devblogs.microsoft.com/oldnewthing/20181023-00/?p=100035)
+* [Adding a `Ctrl`+arrow accelerator for moving the trackbar by just one unit, part 2: Second try](https://devblogs.microsoft.com/oldnewthing/20181024-00/?p=100045)
+* [How do I prevent users from using the mouse to drag the trackbar thumb to positions that aren’t multiples of five? Part 1: Reframe the problem](https://devblogs.microsoft.com/oldnewthing/20181025-00/?p=100055)
+* [How do I prevent users from using the mouse to drag the trackbar thumb to positions that aren’t multiples of five? Part 2: Nudging the thumb position](https://devblogs.microsoft.com/oldnewthing/20181026-00/?p=100065)
 
 ### Tree-List Views
 * [The `TVS_CHECKBOXES` style is quirky, which is a polite way of saying that it is crazy](https://devblogs.microsoft.com/oldnewthing/20171127-00/?p=97465)
@@ -880,7 +880,6 @@ found useful.
 * [One possible reason why `ShellExecute` returns `SE_ERR_ACCESSDENIED` and `ShellExecuteEx` returns `ERROR_ACCESS_DENIED`](https://devblogs.microsoft.com/oldnewthing/20101118-00/?p=12253)
 * [Why does `SHGetSpecialFolderPath` take such a long time before returning a network error?](https://devblogs.microsoft.com/oldnewthing/20110105-00/?p=11823)
 * [How do you obtain the icon for a shortcut without the shortcut overlay?](https://devblogs.microsoft.com/oldnewthing/20110127-00/?p=11653) (`SHGetFileInfo()`)
-* [Why does `SHGetKnownFolderPath` return `E_FAIL` for a known folder?](https://devblogs.microsoft.com/oldnewthing/20110209-00/?p=11543)
 * [How can I get information about the items in the Recycle Bin?](https://devblogs.microsoft.com/oldnewthing/20110830-00/?p=9773)
 * [Modernizing our simple program that retrieves information about the items in the Recycle Bin](https://devblogs.microsoft.com/oldnewthing/20110831-00/?p=9763)
 * [Invoking commands on items in the Recycle Bin](https://devblogs.microsoft.com/oldnewthing/20110901-00/?p=9753)
@@ -908,7 +907,9 @@ found useful.
 * [How do I register a command on the desktop background context menu? (And how do I remove one I don’t like?)](https://devblogs.microsoft.com/oldnewthing/20151208-00/?p=92342)
 * [How can I get the canonical name for a known folder?](https://devblogs.microsoft.com/oldnewthing/20160208-00/?p=93001)
 * [Peeking inside an `IShellItem` to see what it’s made of](https://devblogs.microsoft.com/oldnewthing/20160620-00/?p=93705)
+* [Why does `SHGetKnownFolderPath` return `E_FAIL` for a known folder?](https://devblogs.microsoft.com/oldnewthing/20110209-00/?p=11543)
 * [Why does `SHGetKnownFolderPath` fail when impersonating?](https://devblogs.microsoft.com/oldnewthing/20160601-00/?p=93555)
+* [Why can’t I use `SHSetKnownFolderPath` to change the location of `FOLDERID_LocalAppData`?](https://devblogs.microsoft.com/oldnewthing/20200115-00/?p=103329)
 * [How do I programmatically add a folder to my Documents library?](https://devblogs.microsoft.com/oldnewthing/20161107-00/?p=94655)
 * [Why doesn’t `SHGetFileInfo` give me customized folder icons?](https://devblogs.microsoft.com/oldnewthing/20170501-00/?p=96075)
 * [How can I detect that a shell item refers to a virtual folder, or to a file system inside a file?](https://devblogs.microsoft.com/oldnewthing/20171101-00/?p=97325)
@@ -922,7 +923,7 @@ found useful.
 * [What is the underlying object behind a COM interface pointer?](https://devblogs.microsoft.com/oldnewthing/20070424-00/?p=27143)
 * [How to turn off the exception handler that COM "helpfully" wraps around your server](https://devblogs.microsoft.com/oldnewthing/20110120-00/?p=11713)
 * [Shortcuts are serializable objects, which means that they can be stored in places other than just a file](https://devblogs.microsoft.com/oldnewthing/20110224-00/?p=11403)
-* [Why does` IFileOperation` skip junctions even though I passed `FOFX_NOSKIPJUNCTIONS`?](https://devblogs.microsoft.com/oldnewthing/20110818-00/?p=9873)
+* [Why does `IFileOperation` skip junctions even though I passed `FOFX_NOSKIPJUNCTIONS`?](https://devblogs.microsoft.com/oldnewthing/20110818-00/?p=9873)
 * [Nasty gotcha: `STGM_READ | STGM_WRITE` does not grant read/write access](https://devblogs.microsoft.com/oldnewthing/20130719-00/?p=3763)
 * [How can I get the list of programs the same way that Programs and Features gets it?](https://devblogs.microsoft.com/oldnewthing/20131230-00/?p=2233)
 * [How do I obtain the computer manufacturer's name via C++?](https://devblogs.microsoft.com/oldnewthing/20140106-00/?p=2163) (`IWbemClassObject`)
