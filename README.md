@@ -1,24 +1,24 @@
-![Last Sync'ed](https://img.shields.io/badge/Last_Sync%27ed-Jan_16,_2020-brightgreen)
+![Last Sync](https://img.shields.io/badge/Last_Sync-July_28,_2020-brightgreen)
 
 # The Old New Win32API
 
-This page provides list of links to subset of posts of Raymond Chen's famous 
+This page provides a list of links to subset of posts of Raymond Chen's famous
 blog **[The Old New Thing](https://devblogs.microsoft.com/oldnewthing/)**. The
 subset is limited mainly to Win32API and some COM-related stuff. 
 
-**Disclaimer:** I am not claiming authorship of any linked contents. This is
-only about hopefully useful organization of the great articles Raymond has
-written over the years.
-
 The reason why I manage this page is that it often provides information which
-is missing on MSDN or which is described there in a cryptic way, and also 
-because the blog is not easily searchable. 
+is missing on MSDN or which is described there in a cryptic way, and also
+because the blog is not easily searchable.
 
 The links here are categorized by their topic instead of a chronological order.
 Sometimes, when appropriate, a single post may be put into multiple categories.
 
 In some (quite rare) cases, links to other sources are included if they are
 found useful.
+
+**Disclaimer:** I am not claiming authorship of any linked contents. This is
+only about hopefully useful organization of the great articles Raymond has
+written over the years.
 
 
 ## Table of Contents
@@ -28,6 +28,7 @@ found useful.
   * [Threads](#threads)
   * [Thread Pools](#thread-pools)
   * [Thread Affinity of Objects](#thread-affinity-of-objects)
+  * [Thread Stack](#thread-stack)
   * [Fibers](#fibers)
 * [Synchronization](#synchronization)
   * [`WaitOnAddress()`](#waitonaddress)
@@ -83,9 +84,11 @@ found useful.
   * [Keyboard Messages](#keyboard-messages)
   * [Mouse Messages](#mouse-messages)
   * [Dialog Messages](#dialog-mesages)
-  * [Other Messages](#other-messages)
+  * [Other Window Messages](#other-window-messages)
+  * [System Messages](#system-messages)
 * [GDI](#gdi)
   * [Brushes](#brushes)
+  * [Pens](#pens)
   * [DIB](#dib)
   * [`LockWindowUpdate()`](#lockwindowupdate)
   * [Painting Standard Elements](#painting-standard-elements)
@@ -103,6 +106,7 @@ found useful.
   * [`IUnknown`](#iunknown)
   * [`IMoniker`](#imoniker)
   * [`IContextMenu`](#icontextmenu)
+  * [`IFileDialog`](#ifiledialog)
   * [`IMultiLanguage`](#imultilanguage)
   * [`INamespaceWalk`](#inamespacewalk)
   * [Clipboard](#clipboard)
@@ -112,6 +116,7 @@ found useful.
   * [Uncategorized COM Stuff](#uncategorized-com-stuff)
 * [Memory](#memory)
 * [Input and Output](#input-and-output)
+  * [Asynchronous Input and Output](#asynchronous-input-and-output)
   * [Files and Directories](#files-and-directories)
   * [ACL](#acl)
 * [Security Permissions, Attributes and Identifiers](#security-permissions-attributes-and-identifiers)
@@ -125,6 +130,7 @@ found useful.
 ### Processes
 * [`CreateProcess` does not wait for the process to start](https://devblogs.microsoft.com/oldnewthing/20050119-00/?p=36663)
 * [Why does the `CreateProcess` function modify its input command line?](https://devblogs.microsoft.com/oldnewthing/20090601-00/?p=18083)
+* [Why do people take a lock around `CreateProcess` calls?](https://devblogs.microsoft.com/oldnewthing/20200306-00/?p=103538)
 * [Disabling the program crash dialog](https://devblogs.microsoft.com/oldnewthing/20040727-00/?p=38323)
 * [How do I pass a lot of data to a process when it starts up?](https://devblogs.microsoft.com/oldnewthing/20031211-00/?p=41543)
 * [What was the purpose of the `hPrevInstance` parameter to `WinMain`?](https://devblogs.microsoft.com/oldnewthing/20040615-00/?p=38873)
@@ -156,6 +162,8 @@ found useful.
 * [How to avoid accessing freed memory when canceling a thread pool callback](https://devblogs.microsoft.com/oldnewthing/20180502-00/?p=98655)
 * [Avoiding deadlocks when cancelling a thread pool callback, part 1: External callback data](https://devblogs.microsoft.com/oldnewthing/20180503-00/?p=98665)
 * [Avoiding deadlocks when cancelling a thread pool callback, part 2: Referring back to the containing object](https://devblogs.microsoft.com/oldnewthing/20180504-00/?p=98675)
+* [Gotcha: A threadpool periodic timer will not wait for the previous tick to complete](https://devblogs.microsoft.com/oldnewthing/20200217-00/?p=103441)
+* [Why am I getting an exception from the thread pool during process shutdown?](https://devblogs.microsoft.com/oldnewthing/20200130-00/?p=103385)
 
 ### Thread Affinity of Objects
 * [Thread affinity of user interface objects, part 1: Window handles](https://devblogs.microsoft.com/oldnewthing/20051010-09/?p=33843)
@@ -165,10 +173,23 @@ found useful.
 * [Thread affinity of user interface objects, part 5: Object clean-up](https://devblogs.microsoft.com/oldnewthing/20051014-19/?p=33763)
 * [Thread affinity of user interface objects: Addendum](https://devblogs.microsoft.com/oldnewthing/20121109-00/?p=6133)
 
+### Thread Stack
+* [How can I expand my thread’s stack at runtime?](https://devblogs.microsoft.com/oldnewthing/20200601-00/?p=103815)
+* [Using fibers to expand a thread’s stack at runtime, part 1](https://devblogs.microsoft.com/oldnewthing/20200602-00/?p=103819)
+* [Using fibers to expand a thread’s stack at runtime, part 2](https://devblogs.microsoft.com/oldnewthing/20200603-00/?p=103824)
+* [Using fibers to expand a thread’s stack at runtime, part 3](https://devblogs.microsoft.com/oldnewthing/20200604-00/?p=103833)
+* [Using fibers to expand a thread’s stack at runtime, part 4](https://devblogs.microsoft.com/oldnewthing/20200605-00/?p=103840)
+* [Using fibers to expand a thread’s stack at runtime, part 5](https://devblogs.microsoft.com/oldnewthing/20200611-00/?p=103858)
+* [Using fibers to expand a thread’s stack at runtime, part 6](https://devblogs.microsoft.com/oldnewthing/20200612-00/?p=103865)
+* [Comparing fibers to threads for the purpose of expanding a thread’s stack at runtime](https://devblogs.microsoft.com/oldnewthing/20200608-00/?p=103844)
+* [Determining approximately how much stack space is available, part 1](https://devblogs.microsoft.com/oldnewthing/20200609-00/?p=103847)
+* [Determining approximately how much stack space is available, part 2](https://devblogs.microsoft.com/oldnewthing/20200610-00/?p=103855)
+
 ### Fibers
 * [What happens to the fibers which ran on a thread when the thread exits?](https://devblogs.microsoft.com/oldnewthing/20100225-00/?p=14813)
 * [It's fine to use fibers, but everybody has to be on board with the plan](https://devblogs.microsoft.com/oldnewthing/20100226-00/?p=14793)
 * [Fibers aren’t useful for much any more; there’s just one corner of it that remains useful for a reason unrelated to fibers](https://devblogs.microsoft.com/oldnewthing/20191011-00/?p=102989)
+
 
 ## Synchronization
 
@@ -177,6 +198,7 @@ found useful.
 * [Combining the work queue of distinct events, order not important, with an auto-reset event](https://devblogs.microsoft.com/oldnewthing/20170616-00/?p=96405)
 * [How fair are SRW locks, particularly when there are both readers and writers?](https://devblogs.microsoft.com/oldnewthing/20170705-00/?p=96535)
 * [You can use a file as a synchronization object, too](https://devblogs.microsoft.com/oldnewthing/20140905-00/?p=63)
+* [Can I wait for a kernel event to become *unsignaled*?](https://devblogs.microsoft.com/oldnewthing/20200305-00/?p=103535)
 
 ### `WaitOnAddress()`
 * [`WaitOnAddress` lets you create a synchronization object out of any data variable, even a byte](https://devblogs.microsoft.com/oldnewthing/20160823-00/?p=94145)
@@ -383,6 +405,7 @@ found useful.
 * [The `MARGINS` parameter to the `DwmExtendFrameIntoClientArea` function controls how far the frame extends into the client area](https://devblogs.microsoft.com/oldnewthing/20110113-00/?p=11763)
 * [How do I suppress the default animation that occurs when I hide or show a window?](https://devblogs.microsoft.com/oldnewthing/20121003-00/?p=6423)
 * [Display a custom thumbnail for your application (and while you're at it, a custom live preview)](https://devblogs.microsoft.com/oldnewthing/20130225-00/?p=5153)
+* [How can I detect that my window has been suppressed from the screen by the shell?](https://devblogs.microsoft.com/oldnewthing/20200302-00/?p=103507) ("window cloaking")
 
 ### Dialogs
 * [Why can't I create my dialog box? Rookie mistake #1](https://devblogs.microsoft.com/oldnewthing/?p=28123)
@@ -651,14 +674,11 @@ found useful.
 * [How do I prevent multi-line edit controls from eating the Enter key?](https://devblogs.microsoft.com/oldnewthing/20061012-06/?p=29413)
 * [Why do `DLGC_WANTALLKEYS` and `DLGC_WANTMESSAGE` have the same value?](https://devblogs.microsoft.com/oldnewthing/20070626-00/?p=26263)
 
-### Other Messages
+### Other Window Messages
 * [The dangers of messing with activation when handling a `WM_ACTIVATE` message](https://devblogs.microsoft.com/oldnewthing/20050809-13/?p=34653)
 * [Why does my window get a `WM_ACTIVATE` message when it isn't active?](https://devblogs.microsoft.com/oldnewthing/20131016-00/?p=2913)
 * [A timed context menu](https://devblogs.microsoft.com/oldnewthing/20050307-00/?p=36263) (`WM_CANCELMODE`)
 * [Pitfalls in handling the `WM_CONTEXTMENU` message](https://devblogs.microsoft.com/oldnewthing/20040921-00/?p=37813) (`WM_CONTEXTMENU`)
-* [Why do I have to return this goofy value for `WM_DEVICECHANGE`?](https://devblogs.microsoft.com/oldnewthing/20031205-00/?p=41613) (`WM_DEVICECHANGE`)
-* [Windows doesn't close windows when a user logs off; that's your call](https://devblogs.microsoft.com/oldnewthing/20080421-00/?p=22663) (`WM_ENDSESSION`)
-* [Once you return from the `WM_ENDSESSION` message, your process can be terminated at any time](https://devblogs.microsoft.com/oldnewthing/20130627-00/?p=3973) (`WM_ENDSESSION`)
 * [`WM_NCHITTEST` is for hit-testing, and hit-testing can happen for reasons other than the mouse being over your window](https://devblogs.microsoft.com/oldnewthing/20110218-00/?p=11453)
 * [How likely is it that a window will receive a `WM_NULL` message out of the blue?](https://devblogs.microsoft.com/oldnewthing/20170602-00/?p=96266) (`WM_NULL`)
 * [Why is there a special `PostQuitMessage` function?](https://devblogs.microsoft.com/oldnewthing/20051104-33/?p=33453) (`WM_QUIT`)
@@ -667,6 +687,13 @@ found useful.
 * [When I send a `WM_GETFONT` message to a window, why don't I get a font?](https://devblogs.microsoft.com/oldnewthing/20140724-00/?p=413) (`WM_GETFONT`)
 * [If my `WM_TIMER` handler takes longer than the timer period, will my queue fill up with `WM_TIMER` messages?](https://devblogs.microsoft.com/oldnewthing/20141204-00/?p=43473)
 * [Killing a window timer prevents the `WM_TIMER` message from being generated for that timer, but it doesn't retroactively remove ones that were already generated](https://devblogs.microsoft.com/oldnewthing/20141205-00/?p=43463)
+
+### System Messages
+* [If one program blocks shutdown, then *all* programs block shutdown](https://devblogs.microsoft.com/oldnewthing/20200414-00/?p=103671) (`WM_QUERY­END­SESSION`, `WM_END­SESSION`)
+* [Why do I have to return this goofy value for `WM_DEVICECHANGE`?](https://devblogs.microsoft.com/oldnewthing/20031205-00/?p=41613) (`WM_DEVICECHANGE`)
+* [Windows doesn't close windows when a user logs off; that's your call](https://devblogs.microsoft.com/oldnewthing/20080421-00/?p=22663) (`WM_ENDSESSION`)
+* [Once you return from the `WM_ENDSESSION` message, your process can be terminated at any time](https://devblogs.microsoft.com/oldnewthing/20130627-00/?p=3973) (`WM_ENDSESSION`)
+
 
 ## GDI
 
@@ -690,12 +717,16 @@ found useful.
 * [How are `BitBlt` raster opcodes calculated?](https://devblogs.microsoft.com/oldnewthing/20180528-00/?p=98845)
 * [Notes on `DrawText` and tab stops](https://devblogs.microsoft.com/oldnewthing/20181010-00/?p=99935)
 * [Why doesn’t `GetTextExtentPoint` return the correct extent for strings containing tabs?](https://devblogs.microsoft.com/oldnewthing/20181012-00/?p=99955)
-* [How can I extract the color from a solid color GDI brush?](https://devblogs.microsoft.com/oldnewthing/20190802-00/?p=102747)
+* [Why are there trivial functions like `Copy­Rect` and `Equal­Rect`?](https://devblogs.microsoft.com/oldnewthing/20200224-00/?p=103472)
 
 ### Brushes
 * [The hollow brush](https://devblogs.microsoft.com/oldnewthing/20040126-00/?p=40903)
 * [Other uses for bitmap brushes](https://devblogs.microsoft.com/oldnewthing/20031009-00/?p=42213)
 * [What is the DC brush good for?](https://devblogs.microsoft.com/oldnewthing/20050420-28/?p=35843)
+* [How can I extract the color from a solid color GDI brush?](https://devblogs.microsoft.com/oldnewthing/20190802-00/?p=102747)
+
+### Pens
+* [Is there a difference between creating a null pen with `Create­Pen` and just using the stock null pen?](https://devblogs.microsoft.com/oldnewthing/20200127-00/?p=103368)
 
 ### DIB
 * [A survey of the various ways of creating GDI bitmaps with predefined data](https://devblogs.microsoft.com/oldnewthing/20170331-00/?p=95875)
@@ -748,6 +779,7 @@ found useful.
 * [The dreaded "main" threading model](https://devblogs.microsoft.com/oldnewthing/20040602-00/?p=39053)
 * [A slightly less brief introduction to COM apartments (but it’s still brief)](https://devblogs.microsoft.com/oldnewthing/20191125-00/?p=103135)
 * [Yo dawg, I hear you like COM apartments, so I put a COM apartment in your COM apartment so you can COM apartment while you COM apartment](https://devblogs.microsoft.com/oldnewthing/20191126-00/?p=103140)
+* [What kind of apartment is the private apartment I created via `CLSID_Context­Switcher`?](https://devblogs.microsoft.com/oldnewthing/20200422-00/?p=103694)
 * [Setting up private COM contexts to allow yourself to unload cleanly](https://devblogs.microsoft.com/oldnewthing/20191127-00/?p=103153)
 * [How do you get into a context via `IContext­Callback::Context­Callback`?](https://devblogs.microsoft.com/oldnewthing/20191128-00/?p=103157)
 * [Using contexts to return to a COM apartment later](https://devblogs.microsoft.com/oldnewthing/20191129-00/?p=103162)
@@ -757,6 +789,7 @@ found useful.
 
 ### COM Initialization
 * [What does the `COINIT_SPEED_OVER_MEMORY` flag to `CoInitializeEx` do?](https://devblogs.microsoft.com/oldnewthing/20121108-00/?p=6143)
+* [Crashing in COM after I call `CoUninitialize`, how can COM be running after it is uninitalized?](https://devblogs.microsoft.com/oldnewthing/20200129-00/?p=103380)
 
 ### COM Marshaling
 * [What is COM marshaling and how do I use it?](https://devblogs.microsoft.com/oldnewthing/20151020-00/?p=91321)
@@ -820,6 +853,9 @@ found useful.
 * [Psychic debugging: Why your `IContextMenu::InvokeCommand` doesn't get called even though you returned success from `IContextMenu::QueryContextMenu`](https://devblogs.microsoft.com/oldnewthing/20130201-00/?p=5383)
 * [Don’t forget to implement canonical names for verbs in your shell context menu extension](https://devblogs.microsoft.com/oldnewthing/20170302-00/?p=95635)
 
+### `IFileDialog`
+* [The `SetClientGuid` method of the common file and folder dialogs lets you give names to those dialogs, too](https://devblogs.microsoft.com/oldnewthing/20200527-00/?p=103801) (multiple contexts for open/save dialogs)
+
 ### `IMultiLanguage`
 * [Converting between `LCID`s and RFC 1766 language codes](https://devblogs.microsoft.com/oldnewthing/20060105-00/?p=32753)
 
@@ -835,6 +871,7 @@ found useful.
 * [Copying a file to the clipboard so you can paste it into Explorer or an email message or whatever](https://devblogs.microsoft.com/oldnewthing/20130520-00/?p=4313)
 * [Printing the contents of the clipboard as text to `stdout`](https://devblogs.microsoft.com/oldnewthing/20131007-00/?p=3023)
 * [Improving the performance of `CF_HDROP` by providing file attribute information](https://devblogs.microsoft.com/oldnewthing/20140609-00/?p=783)
+* [What’s up with the `CF_SYLK` and `CF_DIF` clipboard formats?](https://devblogs.microsoft.com/oldnewthing/20200226-00/?p=103489)
 
 ### Drag and Drop
 * [What a drag: Dragging text](https://devblogs.microsoft.com/oldnewthing/20080311-00/?p=23153)
@@ -914,6 +951,7 @@ found useful.
 * [Why doesn’t `SHGetFileInfo` give me customized folder icons?](https://devblogs.microsoft.com/oldnewthing/20170501-00/?p=96075)
 * [How can I detect that a shell item refers to a virtual folder, or to a file system inside a file?](https://devblogs.microsoft.com/oldnewthing/20171101-00/?p=97325)
 * [Why is there a limit of 15 shell icon overlays?](https://devblogs.microsoft.com/oldnewthing/20190313-00/?p=101094)
+* [The case of the `SHGet­Folder­Path(CSIDL_COMMON_DOCUMENTS)` that returned `ERROR_PATH_NOT_FOUND`](https://devblogs.microsoft.com/oldnewthing/20200520-00/?p=103775)
 
 ### Uncategorized COM Stuff
 * [The macros for declaring and implementing COM interfaces](https://devblogs.microsoft.com/oldnewthing/20041005-00/?p=37653)
@@ -940,29 +978,36 @@ found useful.
 * [How can I include/exclude specific memory blocks in user-mode crash dumps?](https://devblogs.microsoft.com/oldnewthing/20181011-00/?p=99945)
 
 ## Input and Output
-* [Developing the method for taking advantage of the fact that the `OVERLAPPED` associated with asynchronous I/O is passed by address](https://devblogs.microsoft.com/oldnewthing/20101220-01/?p=11963)
+
 * [What's the difference between an asynchronous `PIPE_WAIT` pipe and a `PIPE_NOWAIT` pipe?](https://devblogs.microsoft.com/oldnewthing/20110114-00/?p=11753)
+* [Be careful when redirecting both a process's `stdin` and `stdout` to pipes, for you can easily deadlock](https://devblogs.microsoft.com/oldnewthing/20110707-00/?p=10223)
+* [Looking at the problem at the wrong level: Closing a process's `stdin`](https://devblogs.microsoft.com/oldnewthing/20110706-00/?p=10243)
+* [`ReadDirectoryChangesW` reads directory changes, but what if the directory doesn't change?](https://devblogs.microsoft.com/oldnewthing/20110812-00/?p=9913)
+* [How do `FILE_FLAG_SEQUENTIAL_SCAN` and `FILE_FLAG_RANDOM_ACCESS` affect how the operating system treats my file?](https://devblogs.microsoft.com/oldnewthing/20120120-00/?p=8493)
+* [You can use an `OVERLAPPED` structure with synchronous I/O, too](https://devblogs.microsoft.com/oldnewthing/20120405-00/?p=7923)
+* [We're currently using `FILE_FLAG_NO_BUFFERING` and `FILE_FLAG_WRITE_THROUGH`, but we would like our `WriteFile` to go even faster](https://devblogs.microsoft.com/oldnewthing/20140306-00/?p=1583)
+* [Why does my synchronous overlapped `ReadFile` return `FALSE` when the end of the file is reached?](https://devblogs.microsoft.com/oldnewthing/20150121-00/?p=44863)
+* [Why does `SetFileValidData` fail even though I enabled the `SE_MANAGE_VOLUME_NAME` privilege?](https://devblogs.microsoft.com/oldnewthing/20160603-00/?p=93565)
+* [Is `GENERIC_ALL` equivalent to `GENERIC_READ | GENERIC_WRITE | GENERIC_EXECUTE`?](https://devblogs.microsoft.com/oldnewthing/20170310-00/?p=95705)
+* [`CancelIoEx` can cancel I/O on console input, which is kind of nice](https://devblogs.microsoft.com/oldnewthing/20150323-00/?p=44413)
+* [`CancelIoEx` can cancel synchronous I/O, which is kind of nice](https://devblogs.microsoft.com/oldnewthing/20170928-00/?p=97105)
+* [Why does `IsPathRelative` return `FALSE` for paths that are drive-relative?](https://devblogs.microsoft.com/oldnewthing/20180222-00/?p=98075)
+* [The security check happens at the acquisition of the handle](https://devblogs.microsoft.com/oldnewthing/20200320-00/?p=103579)
+
+### Asynchronous Input and Output
+* [Developing the method for taking advantage of the fact that the `OVERLAPPED` associated with asynchronous I/O is passed by address](https://devblogs.microsoft.com/oldnewthing/20101220-01/?p=11963)
 * [Ready... cancel... wait for it! (part 1)](https://devblogs.microsoft.com/oldnewthing/20110202-00/?p=11613)
 * [Ready... cancel... wait for it! (part 2)](https://devblogs.microsoft.com/oldnewthing/20110203-00/?p=11603)
 * [Ready... cancel... wait for it! (part 3)](https://devblogs.microsoft.com/oldnewthing/20110204-00/?p=11583)
 * [If you're waiting for I/O to complete, it helps if you actually have an I/O to begin with](https://devblogs.microsoft.com/oldnewthing/20110303-00/?p=11313)
-* [Be careful when redirecting both a process's `stdin` and `stdout` to pipes, for you can easily deadlock](https://devblogs.microsoft.com/oldnewthing/20110707-00/?p=10223)
-* [Looking at the problem at the wrong level: Closing a process's `stdin`](https://devblogs.microsoft.com/oldnewthing/20110706-00/?p=10243)
-* [`ReadDirectoryChangesW` reads directory changes, but what if the directory doesn't change?](https://devblogs.microsoft.com/oldnewthing/20110812-00/?p=9913)
 * [Why does my asynchronous I/O complete synchronously?](https://devblogs.microsoft.com/oldnewthing/20110923-00/?p=9563)
-* [How do `FILE_FLAG_SEQUENTIAL_SCAN` and `FILE_FLAG_RANDOM_ACCESS` affect how the operating system treats my file?](https://devblogs.microsoft.com/oldnewthing/20120120-00/?p=8493)
-* [You can use an `OVERLAPPED` structure with synchronous I/O, too](https://devblogs.microsoft.com/oldnewthing/20120405-00/?p=7923)
 * [If an asynchronous I/O completes synchronously, is the `hEvent` in the `OVERLAPPED` structure signaled anyway?](https://devblogs.microsoft.com/oldnewthing/20140206-00/?p=1853)
-* [We're currently using `FILE_FLAG_NO_BUFFERING` and `FILE_FLAG_WRITE_THROUGH`, but we would like our `WriteFile` to go even faster](https://devblogs.microsoft.com/oldnewthing/20140306-00/?p=1583)
+* [You can use an `OVERLAPPED` structure with synchronous I/O, too](https://devblogs.microsoft.com/oldnewthing/20120405-00/?p=7923)
 * [Why does my synchronous overlapped `ReadFile` return `FALSE` when the end of the file is reached?](https://devblogs.microsoft.com/oldnewthing/20150121-00/?p=44863)
-* [`CancelIoEx` can cancel I/O on console input, which is kind of nice](https://devblogs.microsoft.com/oldnewthing/20150323-00/?p=44413)
 * [If I issue a second overlapped I/O operation without waiting for the first one to complete, are they still guaranteed to complete in order?](https://devblogs.microsoft.com/oldnewthing/20160205-00/?p=92981)
-* [Why does `SetFileValidData` fail even though I enabled the `SE_MANAGE_VOLUME_NAME` privilege?](https://devblogs.microsoft.com/oldnewthing/20160603-00/?p=93565)
-* [Is `GENERIC_ALL` equivalent to `GENERIC_READ | GENERIC_WRITE | GENERIC_EXECUTE`?](https://devblogs.microsoft.com/oldnewthing/20170310-00/?p=95705)
-* [`CancelIoEx` can cancel synchronous I/O, which is kind of nice](https://devblogs.microsoft.com/oldnewthing/20170928-00/?p=97105)
-* [Why does `IsPathRelative` return `FALSE` for paths that are drive-relative?](https://devblogs.microsoft.com/oldnewthing/20180222-00/?p=98075)
 * [Why are my file write operations synchronous, even though I opened the file as `FILE_FLAG_OVERLAPPED`?](https://devblogs.microsoft.com/oldnewthing/20180725-00/?p=99335)
 * [File-extending writes are not always synchronous, which is entirely within the contract](https://devblogs.microsoft.com/oldnewthing/20181019-00/?p=100015)
+* [Why you might need additional control over the secret event hiding inside the file object](https://devblogs.microsoft.com/oldnewthing/20200221-00/?p=103466)
 
 ### Files and Directories
 * [The Definitive Guide on Win32 to NT Path Conversion](http://googleprojectzero.blogspot.cz/2016/02/the-definitive-guide-on-win32-to-nt.html)
@@ -987,6 +1032,7 @@ found useful.
 
 ## Security Permissions, Attributes and Identifiers
 
+* [The security check happens at the acquisition of the handle](https://devblogs.microsoft.com/oldnewthing/20200320-00/?p=103579)
 * [What is the default security descriptor?](https://devblogs.microsoft.com/oldnewthing/20040312-00/?p=40273)
 * [How do I convert a SID between binary and string forms?](https://devblogs.microsoft.com/oldnewthing/20150501-00/?p=44964)
 * [An easy way to determine whether you have a particular file permission](https://devblogs.microsoft.com/oldnewthing/20040604-00/?p=39023)
@@ -1008,6 +1054,7 @@ found useful.
 * [If I simply want to create a registry key but don’t intend to do anything else with it, what security access mask should I ask for?](https://devblogs.microsoft.com/oldnewthing/20161128-00/?p=94815)
 * [How can I programmatically inspect and manipulate a registry hive file without mounting it?](https://devblogs.microsoft.com/oldnewthing/20181015-00/?p=99975)
 * [Why doesn’t `RegSetKeySecurity` propagate inheritable ACEs, but `SetSecurityInfo` does?](https://devblogs.microsoft.com/oldnewthing/20200102-00/?p=103287)
+* [Why does `Reg­Notify­Change­Key­Value` stop notifying once the key is deleted?](https://devblogs.microsoft.com/oldnewthing/20200507-00/?p=103733)
 
 ## Locale
 
@@ -1017,6 +1064,7 @@ found useful.
 
 * [Calling `ShutdownBlockReasonCreate` from my service doesn't stop the user from shutting down](https://devblogs.microsoft.com/oldnewthing/20151002-00/?p=91461)
 * [What does it mean when my attempt to stop a Windows NT service fails with `ERROR_BROKEN_PIPE`?](https://devblogs.microsoft.com/oldnewthing/20190405-00/?p=102389)
+* [How can I configure my Windows NT service to autostart when the system gains Internet access?](https://devblogs.microsoft.com/oldnewthing/20200227-00/?p=103494)
 
 ## Uncategorized
 
@@ -1047,3 +1095,6 @@ found useful.
 * [The sad history of Unicode `printf`-style format specifiers in Visual C++](https://devblogs.microsoft.com/oldnewthing/20190830-00/?p=102823)
 * [Why are timer IDs and dialog control IDs 64-bit values on 64-bit Windows? Did you really expect people to create more than 4 billion timers or dialog controls?](https://devblogs.microsoft.com/oldnewthing/20191010-00/?p=102978)
 * [If you suppress GDI+ background thread, then you are expected to pump messages yourself](https://devblogs.microsoft.com/oldnewthing/20191029-00/?p=103033)
+* [If one program blocks shutdown, then *all* programs block shutdown](https://devblogs.microsoft.com/oldnewthing/20200414-00/?p=103671) (`WM_QUERY­END­SESSION`, `WM_END­SESSION`)
+* [When I ask the `GetIpAddrTable` function to sort the results, how are they sorted?](https://devblogs.microsoft.com/oldnewthing/20200415-00/?p=103673)
+* [How can I detect that the system is no longer showing a UAC prompt?](https://devblogs.microsoft.com/oldnewthing/20200429-00/?p=103715) (`EVENT_SYSTEM_DESKTOP­SWITCH`)
